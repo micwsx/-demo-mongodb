@@ -51,7 +51,8 @@ public class MongoDBConfig {
             SSLContext sslContext = sslContextBuilder.build();
             MongoClientSettings mongoClientSettings = MongoClientSettings
                     .builder()
-                    .applyConnectionString(new ConnectionString("mongodb://dbAdmin:admin@localhost:27017,172.16.7.2:30000,172.16.7.3:30000/test?authsource=admin"))
+//                    .applyConnectionString(new ConnectionString("mongodb://dbAdmin:admin@localhost:27017,172.16.7.2:30000,172.16.7.3:30000/test?authsource=admin"))
+                    .applyConnectionString(new ConnectionString("mongodb://localhost:27017/test?authsource=admin"))
                     .applyToSslSettings(builder -> builder.context(sslContext).build())
                     .build();
             MongoClient mongoClient = MongoClients.create(mongoClientSettings);

@@ -13,8 +13,9 @@ import java.util.List;
  * @author: Michael
  * @date: 3/15/2022 9:01 AM
  */
-@RestController("/test")
-public class TestController {
+@Controller
+@RequestMapping("/demo")
+public class DemoController {
 
     private TestService testService;
 
@@ -24,17 +25,20 @@ public class TestController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    @ResponseBody
     public List<TestDocument> getAll() {
         List<TestDocument> list = testService.getAll();
         return list;
     }
 
     @RequestMapping(value = "/say", method = RequestMethod.GET)
+    @ResponseBody
     public String say() {
        return "Hello World";
     }
 
     @RequestMapping(value = "/getDocument", method = RequestMethod.POST)
+    @ResponseBody
     public String getDocument(@RequestBody Document document) {
         return document.toString();
     }

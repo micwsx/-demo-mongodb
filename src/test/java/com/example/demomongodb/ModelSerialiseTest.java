@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * @date: 3/21/2022 11:43 AM
  */
 
-public class ConsoleTest {
+public class ModelSerialiseTest {
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class  MyBean{
