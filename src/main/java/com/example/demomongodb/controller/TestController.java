@@ -1,10 +1,9 @@
 package com.example.demomongodb.controller;
 
-import com.example.demomongodb.controller.viewmodel.Document;
+import com.example.demomongodb.controller.viewmodel.DocumentMeta;
 import com.example.demomongodb.domain.TestDocument;
 import com.example.demomongodb.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,7 +34,7 @@ public class TestController {
     }
 
     @RequestMapping(value = "/getDocument", method = RequestMethod.POST)
-    public String getDocument(@RequestBody Document document) {
+    public String getDocument(@RequestBody DocumentMeta document) {
         return document.toString();
     }
 }
