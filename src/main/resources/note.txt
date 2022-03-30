@@ -1,3 +1,12 @@
 OnConditional({conditionClass.class})
 https://blog.csdn.net/xcy1193068639/article/details/81491071
 
+Dispatcher会自动调用resolveMultipart方法将request请求对象转化成DefaultMultipartHttpServletRequest，以父类MultipartHttpServletRequest接收。
+CommonsMultipartResolver
+commonsMultipartResolver.setMaxUploadSizePerFile(1*1024);//1K max size per file
+commonsMultipartResolver.setMaxInMemorySize(500);//100 bytes in memory
+>>文档大小大于500 bytes，则先保存到临时目录下System.getProperty("java.io.tmpdir")
+C:\Users\Michael\AppData\Local\Temp\tomcat.8080.6376749312367403140\work\Tomcat\localhost\ROOT\upload_96e808cd_5b90_4f04_aaf3_1085622222ca_00000001.tmp
+>>文档大小小于500 bytes，直接在内存中保存文档字节内容。
+>>请求结束后springMVC会finally语句块中调用CommonsMultipartResolver的cleanupMultipart方法删除临时文件。
+

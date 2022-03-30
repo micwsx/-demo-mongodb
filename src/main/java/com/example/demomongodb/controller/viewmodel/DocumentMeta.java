@@ -11,6 +11,8 @@ public class DocumentMeta {
     private String documentName;
     private Date createdDate;
 
+    private Document document;
+
     public DocumentMeta() {
 
     }
@@ -18,6 +20,15 @@ public class DocumentMeta {
     public DocumentMeta(String documentName, Date createdDate) {
         this.documentName = documentName;
         this.createdDate = createdDate;
+    }
+
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
     }
 
     public String getDocumentName() {
@@ -38,9 +49,10 @@ public class DocumentMeta {
 
     @Override
     public String toString() {
-        return "Document{" +
+        return "DocumentMeta{" +
                 "documentName='" + documentName + '\'' +
                 ", createdDate=" + createdDate +
+                ", document=" + document +
                 '}';
     }
 }

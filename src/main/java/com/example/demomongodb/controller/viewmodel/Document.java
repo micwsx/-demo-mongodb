@@ -11,19 +11,14 @@ public class Document{
     private String documentId;
     private File file;
     private byte[] content;
+    private String originalName;
+    private String name;
+    private long size;
+    private String contentType;
 
-    private DocumentMeta documentMeta;
 
-    public Document(DocumentMeta documentMeta) {
-        this.documentMeta = documentMeta;
-    }
 
-    public DocumentMeta getDocumentMeta() {
-        return documentMeta;
-    }
-
-    public void setDocumentMeta(DocumentMeta documentMeta) {
-        this.documentMeta = documentMeta;
+    public Document() {
     }
 
     public String getDocumentId() {
@@ -49,4 +44,38 @@ public class Document{
     public void setContent(byte[] content) {
         this.content = content;
     }
+
+    public String getOriginalName() {
+        return originalName;
+    }
+
+    public void setOriginalName(String originalName) {
+        this.originalName = originalName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getSize() {
+        return size;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+
 }

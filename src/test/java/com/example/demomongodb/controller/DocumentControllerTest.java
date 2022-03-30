@@ -55,8 +55,7 @@ public class DocumentControllerTest {
                             .file(docs)
                             .contentType(MediaType.MULTIPART_FORM_DATA_VALUE)
                             .accept(MediaType.APPLICATION_JSON)
-            )
-                    .andDo(print());
+            ).andDo(print());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,8 +86,8 @@ public class DocumentControllerTest {
     private String createDocumentList() {
         try {
             List<DocumentMeta> list = Arrays.asList(
-                    new DocumentMeta("doc1", new Date()),
-                    new DocumentMeta("doc2", new Date())
+                    new DocumentMeta("file1.txt", new Date()),
+                    new DocumentMeta("file2.txt", new Date())
             );
             String jsonString = objectMapper.writeValueAsString(list);
 //            String jsonString = "[{\"documentName\":\"\",\"createdDate\":\"2022-03-29T09:09:56.349+00:00\"},{\"documentName\":\"\",\"createdDate\":\"2022-03-29T09:09:56.349+00:00\"}]";
