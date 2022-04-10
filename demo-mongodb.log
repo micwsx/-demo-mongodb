@@ -1,0 +1,4 @@
+2022-04-10 20:15:21  INFO [[]] main Log4jLoggerTest.testApacheLog4j():19 - hello
+2022-04-10 20:15:21  WARN [[]] main Log4jLoggerTest.testApacheLog4j():20 - hello
+2022-04-10 20:15:21 ERROR [[]] main Log4jLoggerTest.testApacheLog4j():21 - hello
+2022-04-10 20:15:21 FATAL [[]] main Log4jLoggerTest.testApacheLog4j():22 - hello world

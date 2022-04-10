@@ -10,3 +10,75 @@ C:\Users\Michael\AppData\Local\Temp\tomcat.8080.6376749312367403140\work\Tomcat\
 >>文档大小小于500 bytes，直接在内存中保存文档字节内容。
 >>请求结束后springMVC会finally语句块中调用CommonsMultipartResolver的cleanupMultipart方法删除临时文件。
 
+
+
+1.Log4J
+》》》》Log4j依赖包《《《
+ <!--log4j-->
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+</dependency>
+
+// code example
+ private static org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger(Log4jLoggerTest.class);
+
+》》》》Log4j2依赖包《《《
+springboot 项目需要把默认logback配置排除
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>logback-classic</groupId>
+            <artifactId>ch.qos.logback</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+<!--log4j2-->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+</dependency>
+
+// code example
+private static final Logger logger= LogManager.getLogger(Log4j2Logger.class);
+
+》》》》Log4j升级Log4j2依赖包《《《
+<!--bridge jar-->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-1.2-api</artifactId>
+    <version>2.17.1</version>
+</dependency>
+
+<!--log4j2-->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+</dependency>
+
+// code example
+ private static org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger(Log4jLoggerTest.class);
+去掉log4j依赖jar包，不修改代码，但需要修改log4j.properties配置文件对应的log4j2.xml
+
+
+slf4j-log4j12.jar会自动下载log4j, slf4j-api，slf4j-log4j12三个jar包。
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-log4j12</artifactId>
+</dependency>
+
+
+
+ <dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j-impl</artifactId>
+    <version>${project.version}</version>
+  </dependency>
