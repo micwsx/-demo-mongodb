@@ -1,6 +1,7 @@
 package com.example.demomongodb.controller;
 
 import com.example.demomongodb.controller.viewmodel.DocumentMeta;
+import com.example.demomongodb.controller.viewmodel.exception.WeirdException;
 import com.example.demomongodb.domain.TestDocument;
 import com.example.demomongodb.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,11 @@ public class TestController {
     public String getDocument(@RequestBody DocumentMeta document) {
         return document.toString();
     }
+
+    @RequestMapping(value = "/testWeird", method = RequestMethod.GET)
+    public void testException(){
+//        throw new WeirdException("test weird exception.");
+        throw new IllegalArgumentException("invalid argument.");
+    }
+
 }

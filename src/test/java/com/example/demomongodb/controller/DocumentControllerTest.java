@@ -41,7 +41,7 @@ public class DocumentControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void getDocument() {
+    void uploadDocumentTest() {
         try {
             String jsonList = createDocumentList();
             System.out.println("jsonString: " + jsonList);

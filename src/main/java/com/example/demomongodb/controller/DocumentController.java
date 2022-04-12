@@ -49,7 +49,7 @@ public class DocumentController {
 
     @RequestMapping(value = "/uploadDocuments", method = RequestMethod.POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @ResponseBody
-    public List<DocumentMeta> getDocument(@RequestPart(name = "docs")
+    public List<DocumentMeta> uploadDocument(@RequestPart(name = "docs")
                                                   List<DocumentMeta> documentMetaList,
                                           HttpServletRequest request) {
         try {

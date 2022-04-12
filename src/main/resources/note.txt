@@ -1,6 +1,22 @@
 OnConditional({conditionClass.class})
 https://blog.csdn.net/xcy1193068639/article/details/81491071
 
+
+1.SpringBoot file upload
+ <!--file upload dependency-->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.4</version>
+</dependency>
+
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.9.0</version>
+</dependency>
+<!--file upload dependency-->
+
 Dispatcher会自动调用resolveMultipart方法将request请求对象转化成DefaultMultipartHttpServletRequest，以父类MultipartHttpServletRequest接收。
 CommonsMultipartResolver
 commonsMultipartResolver.setMaxUploadSizePerFile(1*1024);//1K max size per file
@@ -12,8 +28,8 @@ C:\Users\Michael\AppData\Local\Temp\tomcat.8080.6376749312367403140\work\Tomcat\
 
 
 
-1.Log4J
-》》》》Log4j依赖包《《《
+2.Log4J
+>>>>>>>>>>>>>>>>>>>>>Log4j依赖包<<<<<<<<<<<<<<<<<<
  <!--log4j-->
 <dependency>
     <groupId>log4j</groupId>
@@ -24,7 +40,7 @@ C:\Users\Michael\AppData\Local\Temp\tomcat.8080.6376749312367403140\work\Tomcat\
 // code example
  private static org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger(Log4jLoggerTest.class);
 
-》》》》Log4j2依赖包《《《
+>>>>>>>>>>>>>>>>>>>>>Log4j2依赖包<<<<<<<<<<<<<<<<<<
 springboot 项目需要把默认logback配置排除
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -50,7 +66,7 @@ springboot 项目需要把默认logback配置排除
 // code example
 private static final Logger logger= LogManager.getLogger(Log4j2Logger.class);
 
-》》》》Log4j升级Log4j2依赖包《《《
+>>>>>>>>>>>>>>>>>>>>>Log4j升级Log4j2依赖包<<<<<<<<<<<<<<<<<<
 <!--bridge jar-->
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
@@ -68,17 +84,22 @@ private static final Logger logger= LogManager.getLogger(Log4j2Logger.class);
  private static org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger(Log4jLoggerTest.class);
 去掉log4j依赖jar包，不修改代码，但需要修改log4j.properties配置文件对应的log4j2.xml
 
-
+>>>>>>>>>>>>>>>>>>>>>slf4j待实践<<<<<<<<<<<<<<<<<<
 slf4j-log4j12.jar会自动下载log4j, slf4j-api，slf4j-log4j12三个jar包。
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-log4j12</artifactId>
 </dependency>
 
-
-
  <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-slf4j-impl</artifactId>
     <version>${project.version}</version>
   </dependency>
+
+
+3.Exception 异常对象如何获取堆栈信息和异常参数信息？
+
+
+
+
