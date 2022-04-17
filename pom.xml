@@ -18,6 +18,34 @@
         <spring.framework.version>5.3.16</spring.framework.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>sit</id>
+            <properties>
+                <!--定义属性profile.active-->
+                <profile.active>sit</profile.active>
+            </properties>
+            <!--default active sit-->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>uat</id>
+            <properties>
+                <!--定义属性profile.active-->
+                <profile.active>uat</profile.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <!--定义属性profile.active-->
+                <profile.active>prod</profile.active>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -108,6 +136,32 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>config/*</exclude>
+                </excludes>
+                <includes>
+                    <include>application.properties</include>
+                    <include>log4j.properties</include>
+                    <include>log4j2.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/config/${profile.active}</directory>
+                <excludes>
+                    <exclude>documentum/*</exclude>
+                </excludes>
+                <includes>
+                    <include>cacerts.txt</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/config/${profile.active}/documentum</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -6,4 +6,6 @@ Integrate mongodb in springboot project.
 3. SpringBoot test cases.(Done)
 4. Log4j upgrade to Log4j2 in springboot.(Done)
 5. Exception principle.(Done)
-
+6. Maven profile.(Done)
+   https://blog.csdn.net/java_collect/article/details/83870215
+   https://blog.csdn.net/weixin_48610702/article/details/119036216
