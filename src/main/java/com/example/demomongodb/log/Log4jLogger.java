@@ -8,15 +8,16 @@ package com.example.demomongodb.log;
 public class Log4jLogger {
 
 
-//    private static org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger(Log4jLoggerTest.class);
-//
-//    public void testApacheLog4j(){
-//        logger.debug("hello");
-//        logger.trace("hello");
-//        logger.info("hello");
-//        logger.warn("hello");
-//        logger.error("hello");
-//    }
+    private static org.apache.log4j.Logger logger=org.apache.log4j.Logger.getLogger(Log4jLogger.class);
+
+    public static void main(String[] args) {
+        logger.debug("hello");
+        logger.trace("hello");
+        logger.info("hello");
+        logger.warn("hello");
+        logger.error("hello");
+        logger.fatal("hello world");
+    }
 
 
 

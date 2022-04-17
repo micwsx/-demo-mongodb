@@ -9,16 +9,16 @@ import org.apache.logging.log4j.Logger;
  */
 public class Log4j2Logger {
 
-//    private static final Logger logger= LogManager.getLogger(Log4j2Logger.class);
-//
-//
-//    public static void main(String[] args) {
-//        logger.debug("hello");
-//        logger.trace("hello");
-//        logger.info("hello");
-//        logger.warn("hello");
-//        logger.error("hello");
-//        logger.fatal("hello world");
-//    }
+    private static final Logger logger= LogManager.getLogger(Log4j2Logger.class);
+
+
+    public static void main(String[] args) {
+        logger.debug("hello");
+        logger.trace("hello");
+        logger.info("hello");
+        logger.warn("hello");
+        logger.error("hello");
+        logger.fatal("hello world");
+    }
     
 }

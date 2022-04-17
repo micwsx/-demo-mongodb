@@ -5,8 +5,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.apache.http.ssl.SSLContextBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +23,7 @@ import java.io.File;
 @Configuration
 public class MongoDBConfig {
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger =Logger.getLogger(getClass());
 
     @Value("${spring.data.mongodb.database}")
     private String database;

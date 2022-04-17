@@ -9,3 +9,4 @@ Integrate mongodb in springboot project.
 6. Maven profile.(Done)
    https://blog.csdn.net/java_collect/article/details/83870215
    https://blog.csdn.net/weixin_48610702/article/details/119036216
+7. @ConfigurationProperties(prefix = "china.credit").(Done) prefix注意大小写等有效性
