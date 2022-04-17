@@ -51,7 +51,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
            <!-- springboot 项目需要把默认logback配置排除-->
-          <exclusions>
+            <!--<exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-logging</artifactId>
@@ -60,7 +60,7 @@
                     <groupId>logback-classic</groupId>
                     <artifactId>ch.qos.logback</artifactId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
 
         <!--java 单纯连接mongodb需要要3个包（注意版本一致）：
