@@ -98,7 +98,7 @@ slf4j-log4j12.jar会自动下载log4j, slf4j-api，slf4j-log4j12三个jar包。
   </dependency>
 
 
-3.Exception 异常对象如何获取堆栈信息和异常参数信息？
+3.Exception 捕获异常对象如何获取堆栈信息和异常参数信息？
 
 
 
