@@ -9,4 +9,7 @@ Integrate mongodb in springboot project.
 6. Maven profile.(Done)
    https://blog.csdn.net/java_collect/article/details/83870215
    https://blog.csdn.net/weixin_48610702/article/details/119036216
-7. @ConfigurationProperties(prefix = "china.credit").(Done) prefix注意大小写等有效性
+7. @ConfigurationProperties(prefix = "china.credit").(Done) prefix注意大小写等有效性(Done)
+8. Mongodb create, update, delete, search.(Done)
+9. SpringBoot Util
+   https://www.csdn.net/tags/MtTaAg4sNTg1ODQzLWJsb2cO0O0O.html

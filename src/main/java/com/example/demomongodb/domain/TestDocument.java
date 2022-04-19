@@ -1,5 +1,6 @@
 package com.example.demomongodb.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,16 +13,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TestDocument {
 
     @Id
+    @JsonIgnore
     private ObjectId id;
 
     private String name;
 
     private Integer age;
 
+    public TestDocument() {
+    }
+
+    public TestDocument(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public ObjectId getId() {
         return id;
     }
-
     public void setId(ObjectId id) {
         this.id = id;
     }
