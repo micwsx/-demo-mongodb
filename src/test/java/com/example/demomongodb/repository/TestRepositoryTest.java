@@ -1,9 +1,11 @@
 package com.example.demomongodb.repository;
 
+import com.example.demomongodb.domain.DocumentDTO;
 import com.example.demomongodb.domain.TestDocument;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
+import org.bson.types.ObjectId;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ import java.util.List;
  * @date: 3/14/2022 10:02 PM
  * https://www.cnblogs.com/qingmuchuanqi48/p/11886618.html
  */
-@SpringBootTest()
+@SpringBootTest
 public class TestRepositoryTest {
 
     @Autowired
@@ -65,7 +67,10 @@ public class TestRepositoryTest {
 
     @Test
     void findByNameAndReplace() {
-        TestDocument testDocument=new TestDocument("Lily",199);
+//        TestDocument testDocument=new TestDocument("Lily",199);
+        TestDocument testDocument=new TestDocument();
+        testDocument.setName("Monica1");
+        testDocument.setAge(88);
         TestDocument newDoc = testRepository.findByNameAndReplace(testDocument);
         printJsonObject(newDoc);
     }
@@ -110,5 +115,47 @@ public class TestRepositoryTest {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+    }
+
+
+    @Test
+    void convertObjectToJson() {
+        TestDocument document=new TestDocument();
+        document.setName("Michael");
+        testRepository.convertObjectToJson(document);
+    }
+
+    @Test
+    void findAndModifyPartial() {
+        TestDocument document=new TestDocument();
+        document.setId(new ObjectId("622c60d1203b5479ecbde18c"));
+        document.setName(null);//如果对象属性没有设置值，则此值并不会被修改。
+        document.setAge(99);
+        TestDocument andModifyPartial = testRepository.findAndModifyPartial(document);
+        logger.info(andModifyPartial);
+    }
+
+    @Test
+    void updatePartial() {
+        TestDocument document=new TestDocument();
+        document.setId(new ObjectId("622c60d1203b5479ecbde18c"));
+        document.setName("Monica1");
+        document.setAge(100);
+        TestDocument testDocument = testRepository.updatePartial(document);
+        logger.info(testDocument);
+    }
+
+    @Test
+    void getDTO(){
+        DocumentDTO monica = testRepository.getDTO("Monica1");
+        logger.info(monica);
+    }
+
+    @Test
+    void saveDTO(){
+        DocumentDTO documentDTO = new DocumentDTO();
+        documentDTO.setDescription("Jessica123,121");
+        DocumentDTO result = testRepository.saveDTO(documentDTO);
+        logger.info(result);
     }
 }

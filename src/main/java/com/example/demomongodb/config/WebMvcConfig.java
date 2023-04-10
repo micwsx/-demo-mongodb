@@ -1,5 +1,6 @@
 package com.example.demomongodb.config;
 
+import com.example.demomongodb.interceptor.LogInterceptor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,16 +8,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.StandardCharsets;
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.ZoneOffset;
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.TimeZone;
 
 /**
  * @author: Michael
@@ -50,5 +51,10 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //        commonsMultipartResolver.setPreserveFilename(true);
         commonsMultipartResolver.setMaxInMemorySize(500);//100 bytes in memory
         return commonsMultipartResolver;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LogInterceptor()).addPathPatterns("/test/*");
     }
 }
